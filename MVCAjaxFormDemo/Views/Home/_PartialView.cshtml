@@ -1,0 +1,11 @@
+﻿@model  IEnumerable<MVCAjaxFormDemo.Models.ClientMessage>
+<table>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@Html.DisplayFor(modelItem => item.Id) - </td>
+            <td>@Html.DisplayFor(modelItem => item.Name) - </td>
+            <td>@Html.DisplayFor(modelItem => item.Email)</td>
+        </tr>
+    }
+</table>

@@ -1,0 +1,21 @@
+﻿@model  MVCAjaxFormDemo.Models.ClientMessage
+
+<h1>Ajax.BeginForm demo</h1>
+
+@using (Ajax.BeginForm("GetClientMessages", "Home", null, new AjaxOptions
+{
+    HttpMethod = "POST",
+    OnSuccess = "displayMessage('Filtered succssfully.')",
+    OnFailure = "displayMessage('Error in filtering.')",
+    UpdateTargetId = "resultTarget"
+}, new { id = "MyNewNameId" }))
+{
+    @Html.AntiForgeryToken()
+
+    @Html.EditorFor(x => x.Name)
+    <input type="submit" value="Search" />
+
+}
+
+<br />
+<div id="resultTarget"></div>
